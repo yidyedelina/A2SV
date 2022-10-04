@@ -16,7 +16,7 @@ public:
         {
             return false;
         }
-        for (int i = 0; i < size; i++)
+        for (int i = size - 1; i > 0; i--)
         {
             circularDeque[i + 1] = circularDeque[i];
         }
