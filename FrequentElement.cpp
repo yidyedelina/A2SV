@@ -14,7 +14,6 @@ int maxFrequency(vector<int> &nums, int K)
             sum -= nums[start];
             start++;
         }
-        res = max(res, end - start + 1);
         res = res > end - start + 1 ? res : end - start + 1;
     }
     return res;
