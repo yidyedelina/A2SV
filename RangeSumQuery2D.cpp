@@ -30,3 +30,27 @@ public:
  * NumMatrix* obj = new NumMatrix(matrix);
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
+
+//product of arraay except itself
+//https://leetcode.com/problems/product-of-array-except-self/
+
+#include <vector>
+using namespace std;
+class Solution
+{
+public:
+    vector<int> productExceptSelf(vector<int> &nums)
+    {
+        int n = nums.size();
+        vector<int> res(n, 1);
+        int left = 1, right = 1;
+        for (int i = 0; i < n; i++)
+        {
+            res[i] *= left;
+            left *= nums[i];
+            res[n - 1 - i] *= right;
+            right *= nums[n - 1 - i];
+        }
+        return res;
+    }
+};
