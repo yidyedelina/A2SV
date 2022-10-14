@@ -19,3 +19,26 @@ int maxFrequency(vector<int>& nums, int K)
         }
         return res;
 }
+//k = 5
+// [1,1,2, 4]
+//sum = 1
+//sum = 2
+//sum = 4
+// sum = 8
+// sum = 7
+// 
+int maxFrequency(vector<int>& nums, int k){
+    sort(nums.begin(), nums.end());
+    int left = 0, right = 0;
+    int sum = 0, maxFre = 0;
+    while(right < nums.size()){
+        sum += nums[right];
+        while((right - left + 1) * nums[right] - sum > k){
+            sum -= nums[left];
+            left++;
+        }
+        maxFre = max(maxFre, right - left + 1);
+        right++;
+    }
+    return maxFre;
+}

@@ -7,7 +7,6 @@ int numOfSubarrays(vector<int> &arr, int k, int threshold)
     int left = 0, right = 0;
     while (right < arr.size())
     {
-        sum += arr[right];
         if (right - left + 1 == k)
         {
             if (sum / k >= threshold)
@@ -17,6 +16,7 @@ int numOfSubarrays(vector<int> &arr, int k, int threshold)
             sum -= arr[left];
             left++;
         }
+        sum += arr[right];
         right++;
     }
     return count;

@@ -9,7 +9,7 @@ vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2)
 {
     int v[nums2.size()];
     stack<int> monoStack;
-    for (int i = nums2.size() - 1; i >=0; i--){
+    for (int i = nums2.size() - 1; i >= 0; i--){
         
         while((!monoStack.empty()) && monoStack.top() < nums2[i]){
             monoStack.pop();
@@ -34,7 +34,7 @@ vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2)
             }
         }
     }
-        return nextGreater;
+    return nextGreater;
 }
 //next greater integer
 //next integer

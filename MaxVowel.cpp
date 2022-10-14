@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <algorithm>
 using namespace std;
 int maxVowels(string s, int k)
 {
@@ -24,3 +26,23 @@ int maxVowels(string s, int k)
     }
     return maxVowel;
 }
+
+//"hellowoorld"
+int maxVowels(string s, int k){
+    vector<char> b{'a', 'e', 'i', 'o', 'u'};
+    int curMax = 0, maxLen = 0;
+    int left = 0, right = 0;
+    while(right < s.size()){
+        if((right - left + 1) == k){
+            maxLen = max(curMax, maxLen);
+            if(find(b.begin(), b.end(), s[left]) != b.end())
+                curMax--;
+            left++;
+        }
+        if(find(b.begin(), b.end(), s[right]) != b.end())
+            curMax++;
+        right++;
+    }
+    return maxLen;
+}
+
