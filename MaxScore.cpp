@@ -14,16 +14,18 @@ int maxScore(vector<int> &cardPoints, int k)
         if((right - left + 1) == (n - k + 1)){
             minSum = min(currSum, minSum);
             currSum -= cardPoints[left];
+            cout << cardPoints[left] << endl;
             left++;
         }
         currSum += cardPoints[right];
         right++;
     }
+    minSum = min(minSum, currSum);
     return totalSum - minSum;
 }
 
 int main(){
-    vector<int> b{7, 8, 3, 4, 5, 6, 7};
-    int a = maxScore(b, 3);
+    vector<int> b{96, 90, 41, 82, 39, 74, 64, 50, 30};
+    int a = maxScore(b, 8);
     cout << a;
 }

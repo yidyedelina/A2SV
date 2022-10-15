@@ -10,11 +10,14 @@ int compress(vector<char> &chars)
     int right = 0;
     while (left < chars.size())
     {
+        //move to the right until there is match and assign the letter to the count index
         while (right < chars.size() && chars[left] == chars[right])
         {
             right++;
         }
-        chars[count++] = chars[left];
+        chars[count] = chars[left];
+        count++;
+        //write the number of count as a single digit 
         if (right - left > 1)
         {
             string s = to_string(right - left);
