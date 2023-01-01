@@ -1,1 +1,10 @@
-new world dsjfdsnjadsncvdnas vdnsvdvvds
+// Simple PUT request with a JSON body using fetch
+const element = document.querySelector('#put-request .date-updated');
+const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+};
+fetch('https://reqres.in/api/articles/1', requestOptions)
+    .then(response => response.json())
+    .then(data => element.innerHTML = data.updatedAt );
